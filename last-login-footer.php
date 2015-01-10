@@ -32,7 +32,7 @@ class How_Long_Logged_In {
 		$time = sprintf( __( human_time_diff( $meta ) ) );
 
 		if ( is_admin() ) {
-			return str_replace( '</span>', '', $footer_text ) . ' | Hi Admin! You&#39;ve been logged in for ' . $time . '</span>';
+			return str_replace( '</span>', '', $footer_text ) . ' | Hi '. $current_user->display_name .'! You&#39;ve been logged in for ' . $time . '</span>';
 		} else {
 			return str_replace( '</span>', '', $footer_text ) . ' | Hi User! You&#39;ve been logged in for ' . $time . '</span>';
 
@@ -42,3 +42,4 @@ class How_Long_Logged_In {
 	}
 }
 new How_Long_Logged_in();
+
