@@ -11,6 +11,7 @@
 
 class How_Long_Logged_In {
 
+	//Actions and Filters
 	public function __construct() {
 		add_action( 'wp_login', array( $this, 'last_user_login_time' ));
 		add_filter( 'admin_footer_text', array( $this, 'logged_in_time_footer' ));
@@ -18,7 +19,7 @@ class How_Long_Logged_In {
 
 	}
 
-	//update_user_meta
+	// update_user_meta()
 	public function last_user_login_time() {
 		$current_user = wp_get_current_user();
 		update_user_meta( $current_user->ID, 'user_last_login', time() );
@@ -42,4 +43,3 @@ class How_Long_Logged_In {
 	}
 }
 new How_Long_Logged_in();
-
